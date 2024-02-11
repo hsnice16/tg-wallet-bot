@@ -7,12 +7,10 @@ function createCallBackBtn(btnLabel, cbActionCommand) {
 }
 
 function generateAccount(phrase, index = 0) {
-  let wallet;
-
   /**
    * If the phrase does not contain spaces, it is likely a private key
    */
-  wallet = phrase.includes(" ")
+  const wallet = phrase.includes(" ")
     ? Wallet.fromMnemonic(phrase, `m/44'/60'/0'/0/${index}`)
     : new Wallet(phrase);
 
